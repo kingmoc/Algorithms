@@ -5,6 +5,7 @@ import argparse
 def find_max_profit(prices):
 	crr_min_price = 0
 	max_profit = 0
+	x = [0]
 
 	for i in range(1, len(prices)):
 		crr_min_price = prices[i-1]
@@ -14,8 +15,11 @@ def find_max_profit(prices):
 		elif max_profit > 0:
 			max_profit += prices[i] - crr_min_price
 			return max_profit
-
+		# elif max_profit < 0:
+		# 	x.append(prices[i] - crr_min_price)
+		# 	print(x, "negative profits")
 		max_profit = (prices[i] - crr_min_price)
+
 
 	return max_profit
 
@@ -29,6 +33,7 @@ def find_max_profit(prices):
 
 # print(find_max_profit([7,5,3,1]))
 # print(find_max_profit([100, 90, 80, 50, 20, 10]), "---- 2 ----")
+# print(find_max_profit([100, 99, 80, 50, 20, 10]), "---- 2 ----")
 
 # print(find_max_profit([100, 55, 4, 98]))
 # print(find_max_profit([2, 4, 6]), "---- 3 ----")
